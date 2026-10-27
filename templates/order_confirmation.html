@@ -1,0 +1,48 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation | ShopEasy</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<header>
+    <h1>ShopEasy</h1>
+    <p>Order Confirmation</p>
+</header>
+
+<main class="product-detail">
+    <h2>Thank you for your order!</h2>
+
+    <p>Order Number: #{{ order.id }}</p>
+    <p>Order Date: {{ order.created_at }}</p>
+    <p>Status: {{ order.get_status_display }}</p>
+
+    <h3>Items Ordered</h3>
+
+    {% for item in order.items.all %}
+        <section class="detail-card">
+            <h4>{{ item.product_name }}</h4>
+            <p>Price: ₹{{ item.price }}</p>
+            <p>Quantity: {{ item.quantity }}</p>
+            
+        </section>
+    {% endfor %}
+
+    <h3>Total: ₹{{ order.total_amount }}</h3>
+
+    <a href="{% url 'home' %}" class="view-product-btn">
+        Continue Shopping
+    </a>
+</main>
+
+<footer>
+    <p>&copy; 2026 ShopEasy. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders | ShopEasy</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<nav class="account-nav">
+    <a href="{% url 'home' %}">ShopEasy Home</a>
+    <a href="{% url 'view_cart' %}">View Cart</a>
+    <a href="{% url 'order_history' %}">My Orders</a>
+</nav>
+
+<main class="product-detail">
+    <h1>My Orders</h1>
+
+    {% if orders %}
+        {% for order in orders %}
+            <section class="detail-card">
+                <h3>Order #{{ order.id }}</h3>
+                <p>Date: {{ order.created_at }}</p>
+                <p>Status: {{ order.get_status_display }}</p>
+                <p>Total: ₹{{ order.total_amount }}</p>
+
+                <h4>Items</h4>
+                {% for item in order.items.all %}
+                    <p>
+                        {{ item.product_name }} —
+                        {{ item.quantity }} × ₹{{ item.price }}
+                    </p>
+                {% endfor %}
+
+                <a href="{% url 'order_confirmation' order.id %}">
+                    View Order
+                </a>
+            </section>
+        {% endfor %}
+    {% else %}
+        <p>You haven't placed any orders yet.</p>
+        <a href="{% url 'home' %}">Browse Products</a>
+    {% endif %}
+</main>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ product.name }} | ShopEasy</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<nav class="account-nav">
+    <a href="{% url 'home' %}">ShopEasy Home</a>
+
+    {% if user.is_authenticated %}
+        <span>Welcome, {{ user.username }}!</span>
+        <form method="post" action="{% url 'logout' %}" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+    {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'register' %}">Register</a>
+    {% endif %}
+
+    <a href="{% url 'view_cart' %}">View Cart</a>
+    <a href="{% url 'order_history' %}">My Orders</a>
+</nav>
+
+<header>
+    <h1>ShopEasy</h1>
+    <p>Your one-stop shop for everyday essentials!</p>
+</header>
+
+{% if messages %}
+    {% for message in messages %}
+        <p class="cart-message">{{ message }}</p>
+    {% endfor %}
+{% endif %}
+
+<main class="product-detail">
+    <p>
+        <a href="{% url 'view_cart' %}" class="view-product-btn">
+            View Shopping Cart
+        </a>
+    </p>
+
+    <a href="{% url 'home' %}" class="back-link">
+        &larr; Back to Products
+    </a>
+
+    <section class="detail-card">
+        {% if product.image %}
+            <img
+                src="{{ product.image.url }}"
+                alt="{{ product.name }}"
+                class="detail-image"
+            >
+        {% endif %}
+
+        <div class="detail-info">
+            <h2>{{ product.name }}</h2>
+
+            <p class="description">{{ product.description }}</p>
+
+            <p class="price">₹{{ product.price }}</p>
+
+            <p class="stock">
+                {% if product.stock > 0 %}
+                    In stock: {{ product.stock }}
+                {% else %}
+                    Out of stock
+                {% endif %}
+            </p>
+
+            <form method="post" action="{% url 'add_to_cart' product.id %}">
+                {% csrf_token %}
+
+                <label for="quantity">Quantity:</label>
+                <input
+                    type="number"
+                    id="quantity"
+                    name="quantity"
+                    value="1"
+                    min="1"
+                    max="{{ product.stock }}"
+                    required
+                    {% if product.stock < 1 %}disabled{% endif %}
+                >
+
+                <button
+                    type="submit"
+                    {% if product.stock < 1 %}disabled{% endif %}
+                >
+                    Add to Cart
+                </button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 ShopEasy. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
