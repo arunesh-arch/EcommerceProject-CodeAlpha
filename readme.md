@@ -236,43 +236,78 @@ http://127.0.0.1:8000/admin/
 
 Log in using your superuser credentials to manage products and inspect orders.
 
+
 🧪 Testing Checklist
 
 Before submitting the project for internship evaluation, verify the following functionalities.
 
 Homepage and Products
+
 Homepage and product listings load correctly.
+
 Product detail pages display the correct information.
+
 User Authentication
+
 Users can register successfully.
+
 Users can log in and log out.
+
 Shopping Cart
+
 Products can be added to the cart.
+
 Product quantities can be updated.
+
 Products can be removed from the cart.
+
 Cart quantities cannot exceed available stock.
+
 Checkout and Orders
+
 Checkout creates an order with the correct total.
+
 Stock decreases correctly after a successful order.
+
 The cart is cleared after successful checkout.
+
 Checkout rejects an empty cart.
+
 Checkout rejects insufficient stock without creating an invalid order.
+
 Order confirmation displays the correct order information.
+
 Authenticated customers can view their own orders.
+
 Anonymous visitors are redirected to login when accessing My Orders.
+
 Customers cannot access another customer's orders.
+
 Django Admin and Final Checks
+
 Django Admin provides access to Product, Order, and OrderItem.
+
 Existing cart operations continue to work.
+
 python manage.py check completes successfully.
+
 Relevant screenshots are captured for internship submission.
+
 🔒 Security and Configuration Notes
+
 Keep Django's production SECRET_KEY private.
+
 Never upload passwords, API credentials, or other sensitive information.
+
 Add .env files and virtual environments to .gitignore.
+
 Use appropriate access controls for customer-specific order information.
+
 Configure production settings before hosting the website publicly.
+
 Do not use Django's development server for production deployment.
+
+
 🎯 Project Objectives
 
 The main objectives of ShopEasy are to:
