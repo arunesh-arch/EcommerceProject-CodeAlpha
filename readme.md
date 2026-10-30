@@ -5,89 +5,107 @@ ShopEasy is a beginner-friendly e-commerce web application developed as part of 
 The project is built using HTML, CSS, JavaScript, Python, Django, and SQLite.
 
 📌 Project Information
+
 Details	Description
+
 Project Name	ShopEasy
+
 Internship	CodeAlpha
+
 Project Type	E-Commerce Web Application
+
 Frontend	HTML, CSS, JavaScript
+
 Backend	Python, Django
+
 Database	SQLite
+
 Python Version	3.13.15
+
 Django Version	6.1.2
+
 ✨ Features
+
 🛒 1. Product Management
+
 Display available products on the homepage.
+
 View individual product details.
+
 Display product name, description, price, image, and available stock.
+
 🛍️ 2. Shopping Cart
+
 Add products to the shopping cart.
+
 Update product quantities.
+
 Remove products from the cart.
+
 Maintain cart contents using Django sessions.
+
 Validate requested quantities against available stock.
+
 👤 3. User Authentication
+
 User registration.
+
 User login and logout.
+
 Display username and account navigation.
+
 Protect customer-specific functionality using Django authentication.
+
 📦 4. Checkout and Orders
+
 Create customer orders from the shopping cart.
+
 Store order details in the database.
+
 Save product names, prices, and quantities in order items.
+
 Track order totals and order status.
+
 Display an order confirmation page.
+
 Allow customers to view their previous orders through the My Orders page.
+
 Note: Checkout, order confirmation, and My Orders functionality should be considered verified only after completing the final testing checklist.
+
 ⚙️ 5. Django Admin
+
 Manage products through Django Admin.
+
 View and manage customer orders.
+
 View associated order items.
+
 🧰 Technologies Used
+
 Technology	Purpose
+
 HTML	Web page structure
+
 CSS	Website styling
+
 JavaScript	Client-side interactions
+
 Python	Backend programming
+
 Django	Web framework
+
 SQLite	Database
+
 Django Templates	Dynamic page rendering
+
 Django Sessions	Shopping cart storage
+
 Django Authentication	User registration and login
+
 Django Admin	Administrative management
 
-📂 Project Structure
 
-EcommerceProject
-
-📁 config/
-settings.py
-urls.py
-asgi.py
-wsgi.py
-📁 shop/
-📁 migrations/
-0001_initial.py
-0002_order_orderitem.py
-📁 templates/shop/
-home.html
-product_detail.html
-cart.html
-checkout.html
-order_confirmation.html
-my_orders.html
-models.py
-views.py
-urls.py
-admin.py
-apps.py
-tests.py
-📄 manage.py
-📄 db.sqlite3
-📄 requirements.txt
-📄 .gitignore
-📄 README.md
-
-
+<img width="282" height="361" alt="image" src="https://github.com/user-attachments/assets/a3309692-0870-4379-b3c6-3bd122acd7c0" />
 
 Note: This is an illustrative project structure. Actual files and template names may differ.
 
