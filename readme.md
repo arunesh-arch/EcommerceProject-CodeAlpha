@@ -56,20 +56,26 @@ Django Authentication	User registration and login
 Django Admin	Administrative management
 📂 Project Structure
 text
+
+
+
 EcommerceProject/
 │
-├── config/
-│   ├── settings.py
-│   ├── urls.py
-│   └── ...
+├── config/                     # Main Django project configuration
+│   ├── __init__.py
+│   ├── settings.py             # Project settings
+│   ├── urls.py                 # Main URL configuration
+│   ├── asgi.py
+│   └── wsgi.py
 │
-├── shop/
-│   ├── migrations/
+├── shop/                       # Main e-commerce application
+│   ├── migrations/             # Database migrations
+│   │   ├── __init__.py
 │   │   ├── 0001_initial.py
 │   │   ├── 0002_order_orderitem.py
 │   │   └── ...
 │   │
-│   ├── templates/
+│   ├── templates/              # HTML templates
 │   │   └── shop/
 │   │       ├── home.html
 │   │       ├── product_detail.html
@@ -78,16 +84,28 @@ EcommerceProject/
 │   │       ├── order_confirmation.html
 │   │       └── my_orders.html
 │   │
-│   ├── models.py
-│   ├── views.py
-│   ├── urls.py
+│   ├── static/                 # CSS, JavaScript and images (if present)
+│   │   ├── css/
+│   │   ├── js/
+│   │   └── images/
+│   │
+│   ├── __init__.py
+│   ├── admin.py                # Django Admin configuration
+│   ├── apps.py                 # Application configuration
+│   ├── models.py               # Product, Order and OrderItem models
+│   ├── views.py                # Application views and business logic
+│   ├── urls.py                 # Application URL patterns
+│   ├── tests.py                # Application tests
 │   └── ...
 │
-├── manage.py
-├── db.sqlite3
-├── requirements.txt
-├── .gitignore
-└── README.md
+├── venv/                       # Virtual environment (not committed)
+│
+├── db.sqlite3                  # SQLite database
+├── manage.py                   # Django management utility
+├── requirements.txt            # Project dependencies
+├── .gitignore                  # Git ignored files
+└── README.md                   # Project documentation
+
 
 
 Note: This is an illustrative project structure. Actual files and template names may differ.
